@@ -21,12 +21,12 @@ namespace WBE_MaxOfStack
                 {
                     Console.Write("\nEnter an integer between 1 and 100\n\n>>> ");
                     int[] input = Console.ReadLine().Split(',').Select(x => int.Parse(x)).ToArray();
-                    Stack<int> myStack = new Stack<int>();
+                    MaxStack myStack = new MaxStack();
                     foreach (var x in input)
                     {
                         myStack.Push(x);
                     }
-                    Console.WriteLine("\nThe highest value in the stack is: " + GetMax(myStack));
+                    Console.WriteLine("\nThe highest value in the stack is: " + myStack.GetMax(myStack));
                 }
                 catch (Exception ex)
                 {
@@ -37,16 +37,5 @@ namespace WBE_MaxOfStack
                 Console.Clear();
             } while (true);
         }
-
-        static int GetMax(Stack<int> myStack)
-        {
-            int max = myStack.Peek();
-            foreach(var x in myStack)
-            {
-                max = x > max ? x : max;
-            }
-            return max;
-        }
-
     }
 }
